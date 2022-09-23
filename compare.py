@@ -6,8 +6,8 @@ import pandas as pd
 # two_days_ago = today - timedelta(days=2)
   
 #Reading two Excel Sheets
-sheet1 = pd.read_csv(f'./Offensive_Teams/Passing/team_passing_09-20-22.csv')
-sheet2 = pd.read_csv(f'./Offensive_Teams/Passing/team_passing_09-21-22.csv')
+sheet1 = pd.read_csv(f'./Offensive_Teams/Passing/team_passing_09-21-22.csv')
+sheet2 = pd.read_csv(f'./Offensive_Teams/Passing/team_passing_09-23-22.csv')
   
 # Iterating the Columns Names of both Sheets
 for i,j in zip(sheet1,sheet2):
