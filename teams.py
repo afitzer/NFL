@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import model
 import pandas as pd
 from datetime import date
+import sqlite3
 
 # Create a Response object called r
 r_passing = requests.get(
@@ -106,3 +107,9 @@ passing_df.to_csv(f"Offensive_Teams/Passing/team_passing_{d1}.csv", index=False)
 receiving_df.to_csv(f"Offensive_Teams/Receiving/team_receiving_{d1}.csv", index=False)
 rushing_df.to_csv(f"Offensive_Teams/Rushing/team_rushing_{d1}.csv", index=False)
 scoring_df.to_csv(f"Offensive_Teams/Scoring/team_scoring_{d1}.csv", index=False)
+
+# Database Section
+
+# Create a connection to the database
+# model.create_table('nfl.db', 'offenisve_team_passing_table')
+
