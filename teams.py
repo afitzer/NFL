@@ -95,6 +95,12 @@ scoring_df['Team'] = scoring_df['Team'].str.split("\n").str.get(0)
 today = date.today()
 d1 = today.strftime("%m-%d-%y")
 
+# Add a new field in each df that shows a time stamp
+passing_df['Date'] = d1
+receiving_df['Date'] = d1
+rushing_df['Date'] = d1
+scoring_df['Date'] = d1
+
 # Export the Pandas df to a csv file
 passing_df.to_csv(f"Offensive_Teams/Passing/team_passing_{d1}.csv", index=False)
 receiving_df.to_csv(f"Offensive_Teams/Receiving/team_receiving_{d1}.csv", index=False)
