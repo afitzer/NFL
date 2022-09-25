@@ -80,15 +80,15 @@ def create_offensive_teams_rushing():
     c.execute("""CREATE TABLE IF NOT EXISTS offensive_rushing (
     "Team"	TEXT NOT NULL UNIQUE,
 	"Att"	INTEGER NOT NULL,
-	"Rushs Yds"	INTEGER NOT NULL,
+	"Rush Yds"	INTEGER NOT NULL,
 	"YPC"	REAL NOT NULL,
 	"TD"	INTEGER NOT NULL,
 	"20+"	INTEGER NOT NULL,
 	"40+"	INTEGER NOT NULL,
 	"Lng"	TEXT NOT NULL,
-	"Rec 1st"	INTEGER NOT NULL,
-	"Rec 1st%"	REAL NOT NULL,
-	"Rec FUM"	INTEGER NOT NULL,
+	"Rush 1st"	INTEGER NOT NULL,
+	"Rush 1st%"	REAL NOT NULL,
+	"Rush FUM"	INTEGER NOT NULL,
 	"Date"	TEXT NOT NULL,
 	PRIMARY KEY("Team")
 );

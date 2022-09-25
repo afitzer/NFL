@@ -101,16 +101,3 @@ passing_df['Date'] = d1
 receiving_df['Date'] = d1
 rushing_df['Date'] = d1
 scoring_df['Date'] = d1
-
-# Database Section
-# Create a connection to the database
-conn = sqlite3.connect('nfl.db')
-
-# Create a cursor
-c = conn.cursor()
-
-# Export the Pandas df to a csv file
-passing_df.to_sql(offensive_passing, conn, if_exists='append', index=False)
-receiving_df.to_sql(offensive_receiving, conn, if_exists='append', index=False)
-rushing_df.to_sql(offensive_rushing, conn, if_exists='append', index=False)
-scoring_df.to_sql(offensive_scoring, conn, if_exists='append', index=False)
