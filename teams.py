@@ -101,3 +101,13 @@ passing_df['Date'] = d1
 receiving_df['Date'] = d1
 rushing_df['Date'] = d1
 scoring_df['Date'] = d1
+
+# Append new data to the sqlite3 database
+conn = sqlite3.connect('nfl.db')
+passing_df.to_sql('passing', conn, if_exists='append', index=False)
+receiving_df.to_sql('receiving', conn, if_exists='append', index=False)
+rushing_df.to_sql('rushing', conn, if_exists='append', index=False)
+scoring_df.to_sql('scoring', conn, if_exists='append', index=False)
+
+# Close the connection
+conn.close()
