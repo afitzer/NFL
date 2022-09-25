@@ -102,14 +102,15 @@ receiving_df['Date'] = d1
 rushing_df['Date'] = d1
 scoring_df['Date'] = d1
 
-# Export the Pandas df to a csv file
-passing_df.to_csv(f"Offensive_Teams/Passing/team_passing_{d1}.csv", index=False)
-receiving_df.to_csv(f"Offensive_Teams/Receiving/team_receiving_{d1}.csv", index=False)
-rushing_df.to_csv(f"Offensive_Teams/Rushing/team_rushing_{d1}.csv", index=False)
-scoring_df.to_csv(f"Offensive_Teams/Scoring/team_scoring_{d1}.csv", index=False)
-
 # Database Section
-
 # Create a connection to the database
-# model.create_table('nfl.db', 'offenisve_team_passing_table')
+conn = sqlite3.connect('nfl.db')
 
+# Create a cursor
+c = conn.cursor()
+
+# Export the Pandas df to a csv file
+passing_df.to_sql(offensive_passing, conn, if_exists='append', index=False)
+receiving_df.to_sql(offensive_receiving, conn, if_exists='append', index=False)
+rushing_df.to_sql(offensive_rushing, conn, if_exists='append', index=False)
+scoring_df.to_sql(offensive_scoring, conn, if_exists='append', index=False)
