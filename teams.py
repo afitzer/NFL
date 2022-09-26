@@ -92,7 +92,7 @@ receiving_df.columns = receiving_columns
 rushing_df.columns = rushing_columns
 scoring_df.columns = scoring_columns
 
-# Grab todays date and format it for the csv file
+# Grab todays date and format it for the Date logging
 today = date.today()
 d1 = today.strftime("%m-%d-%y")
 
