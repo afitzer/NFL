@@ -18,7 +18,7 @@ r_rushing = requests.get(
 r_scoring = requests.get(
 'https://www.nfl.com/stats/team-stats/offense/scoring/2022/reg/all', timeout=1.0)
 
-# Create a Beautiful Soup object called soup
+# # Create a Beautiful Soup object called soup
 soup_passing = BeautifulSoup(r_passing.text, 'html.parser')
 soup_receiving = BeautifulSoup(r_receiving.text, 'html.parser')
 soup_rushing = BeautifulSoup(r_rushing.text, 'html.parser')
@@ -68,7 +68,7 @@ scoring_data = []
 for row in scoring_table_data:
     scoring_data.append(row)
 
-# Create a Pandas DataFrame
+# # Create a Pandas DataFrame
 passing_df = pd.DataFrame(data=passing_data)
 receiving_df = pd.DataFrame(data=receiving_data)
 rushing_df = pd.DataFrame(data=rushing_data)
@@ -92,12 +92,6 @@ receiving_df.columns = receiving_columns
 rushing_df.columns = rushing_columns
 scoring_df.columns = scoring_columns
 
-# Clean up the Team column to include only the Team name
-passing_df['Team'] = passing_df['Team'].str.split("\n").str.get(0)
-receiving_df['Team'] = receiving_df['Team'].str.split("\n").str.get(0)
-rushing_df['Team'] = rushing_df['Team'].str.split("\n").str.get(0)
-scoring_df['Team'] = scoring_df['Team'].str.split("\n").str.get(0)
-
 # Grab todays date and format it for the csv file
 today = date.today()
 d1 = today.strftime("%m-%d-%y")
@@ -112,10 +106,10 @@ print("The data is now cleaned up, next up is the writing of the data to the dat
 
 # Append new data to the sqlite3 database
 conn = sqlite3.connect('nfl.db')
-passing_df.to_sql('passing', conn, if_exists='append', index=False)
-receiving_df.to_sql('receiving', conn, if_exists='append', index=False)
-rushing_df.to_sql('rushing', conn, if_exists='append', index=False)
-scoring_df.to_sql('scoring', conn, if_exists='append', index=False)
+passing_df.to_sql('offensive_passing', conn, if_exists='append', index=False)
+receiving_df.to_sql('offensive_receiving', conn, if_exists='append', index=False)
+rushing_df.to_sql('offensive_rushing', conn, if_exists='append', index=False)
+scoring_df.to_sql('offensive_scoring', conn, if_exists='append', index=False)
 
 # Close the connection
 conn.close()
