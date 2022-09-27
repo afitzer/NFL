@@ -80,7 +80,7 @@ defensive_interception_data = []
 for row in defensive_interception_table_data:
     defensive_interception_data.append(row)
 
-# # Create a Pandas DataFrame
+# Create a Pandas DataFrame
 passing_df = pd.DataFrame(data=passing_data)
 receiving_df = pd.DataFrame(data=receiving_data)
 rushing_df = pd.DataFrame(data=rushing_data)
