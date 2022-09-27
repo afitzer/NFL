@@ -112,3 +112,19 @@ def create_offensive_teams_scoring():
 """)
     conn.commit()
     conn.close()
+
+# This function creates the table for the Defensive Teams Interception data.
+def create_defensive_teams_interception():
+	conn = sqlite3.connect('nfl.db')
+	c = conn.cursor()
+	c.execute("""CREATE TABLE IF NOT EXISTS defensive_interception (
+	"Team"	TEXT NOT NULL,
+	"INT"	INTEGER NOT NULL,
+	"INT TD"	INTEGER NOT NULL,
+	"INT Yds"	INTEGER NOT NULL,
+	"Lng"	TEXT NOT NULL,
+	"Date"	TEXT NOT NULL
+);
+""")
+	conn.commit()
+	conn.close()
