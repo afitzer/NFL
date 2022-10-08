@@ -127,9 +127,10 @@ passing_df.to_sql('offensive_passing', conn, if_exists='append', index=False)
 receiving_df.to_sql('offensive_receiving', conn, if_exists='append', index=False)
 rushing_df.to_sql('offensive_rushing', conn, if_exists='append', index=False)
 scoring_df.to_sql('offensive_scoring', conn, if_exists='append', index=False)
-defensive_interception_df.to_sql('defensive_interception', conn, if_exists='append', index=False)
+# defensive_interception_df.to_sql('defensive_interception', conn, if_exists='append', index=False)
 
 # Close the connection
 conn.close()
 
+scoring_df.to_csv('scoring.csv')
 print("The program is complete!")
